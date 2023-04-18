@@ -3,7 +3,7 @@ import './App.css';
 import { useState } from 'react';
 import Users from './components/Users';
 import NewUser from './components/NewUser';
-import UsersContext from './context/UsersContext';
+import { UsersContext } from './context/UsersContext';
 
 function App() {
 
@@ -14,12 +14,6 @@ function App() {
 
   ]);
 
-  const handleDeleteUser = (id) => {
-
-    const filteredUsers = users.filter(user => user.id !== id);
-    setUsers(filteredUsers);
-
-  }
 
   const handleNewUser = (user) => {
 
@@ -34,7 +28,7 @@ function App() {
       <div>
 
       <NewUser handleNewUser={handleNewUser}/>
-      <Users users={users} handleDeleteUser={handleDeleteUser}></Users>
+      <Users></Users>
 
       </div>
 

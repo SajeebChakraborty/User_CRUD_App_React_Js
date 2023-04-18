@@ -3,6 +3,7 @@ import './App.css';
 import { useState } from 'react';
 import Users from './components/Users';
 import NewUser from './components/NewUser';
+import UsersContext from './context/UsersContext';
 
 function App() {
 
@@ -27,12 +28,19 @@ function App() {
   }
 
   return (
-    <div>
+    
+    <UsersContext.Provider value={{users,setUsers}}>
 
-    <NewUser handleNewUser={handleNewUser}/>
-    <Users users={users} handleDeleteUser={handleDeleteUser}></Users>
+      <div>
 
-    </div>
+      <NewUser handleNewUser={handleNewUser}/>
+      <Users users={users} handleDeleteUser={handleDeleteUser}></Users>
+
+      </div>
+
+    </UsersContext.Provider>
+
+
   );
 }
 

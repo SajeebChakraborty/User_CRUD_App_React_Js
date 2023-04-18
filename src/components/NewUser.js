@@ -1,10 +1,14 @@
 import React from 'react'
 
 import { useState } from 'react';
+import { UsersContext } from '../context/UsersContext';
+import { useContext } from 'react';
 
-export default function NewUser({handleNewUser}) {
+export default function NewUser() {
 
   const [username, setUsername] = useState('');
+  
+  const {users,setUsers} = useContext(UsersContext);
 
   const handleUsername = (e) => {
 
@@ -17,7 +21,8 @@ export default function NewUser({handleNewUser}) {
     e.preventDefault();
 
     const user = {id:Math.random(),name:username};
-    handleNewUser(user);
+    const newUser = [...users,user];
+    setUsers(newUser);
 
   }
 

@@ -15,19 +15,13 @@ function App() {
   ]);
 
 
-  const handleNewUser = (user) => {
-
-    const newUser = [...users,user];
-    setUsers(newUser);
-  }
-
   return (
     
     <UsersContext.Provider value={{users,setUsers}}>
 
       <div>
 
-      <NewUser handleNewUser={handleNewUser}/>
+      <NewUser/>
       <Users></Users>
 
       </div>
